@@ -14,6 +14,7 @@ background = pygame.image.load("tlo.jpg")
 background = pygame.transform.scale(background, (1280, 900))
 
 # Pętla gry
+print("testuje")
 running = True
 while running:
     pygame.display.update()
