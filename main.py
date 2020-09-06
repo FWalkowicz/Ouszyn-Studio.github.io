@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 import sys
-import random
 
 pygame.init()
 
@@ -28,7 +27,7 @@ while running:
         if event.type == QUIT:
             sys.exit()
 
-
+print("WAntuch na kozaku")
 
 
 
