@@ -13,6 +13,24 @@ pygame.mouse.set_visible(0)
 background = pygame.image.load("tlo.jpg")
 background = pygame.transform.scale(background, (1280, 900))
 
+# Główny bohater
+class Wantuch():
+    def __init__(self):
+        size = width, height = 100, 100
+        wiktor = self.pygame.image.load("banas.png")
+        self.pygame.transform.scale(wiktor, (100,100))
+        self.rect = self.image.get_rect()
+
+        self.change_x = 0
+        self.change_y = 0
+
+        self.level = None
+
+    def update(self):
+        self.calc_grav()
+
+
+
 # Pętla gry
 running = True
 while running:
@@ -26,8 +44,6 @@ while running:
     for event in pygame.event.get():
         if event.type == QUIT:
             sys.exit()
-
-print("WAntuch na kozaku")
 
 
 
