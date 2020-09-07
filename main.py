@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 import sys
-import random
 
 pygame.init()
 
@@ -15,6 +14,7 @@ background = pygame.image.load("tlo.jpg")
 background = pygame.transform.scale(background, (1280, 900))
 
 # Pętla gry
+print("testuje")
 running = True
 while running:
     pygame.display.update()
@@ -28,7 +28,7 @@ while running:
         if event.type == QUIT:
             sys.exit()
 
-
+print("WAntuch na kozaku")
 
 
 
