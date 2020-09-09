@@ -30,7 +30,7 @@ pygame.display.set_caption(TITLE)
 pygame.mouse.set_visible(1)
 
 # background image
-background = pygame.image.load("zsme.png")
+background = pygame.image.load("tlo.jpg")
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 background.set_colorkey(BLACK)
 grass = pygame.image.load('grass.png')
@@ -47,6 +47,9 @@ player_pos = [0, 600]
 player_size = [100, 100]
 moving_right = False
 moving_left = False
+jumping = False
+mass = 5
+force = 1
 vertical_momentum = 0
 air_timer = 0
 
@@ -62,9 +65,6 @@ game_map = [['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0
             ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
             ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2', '2'],
             ['2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '1', '1'],
-            ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'],
-            ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'],
-            ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'],
             ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'],
             ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1']]
 ########################################################################################################################
@@ -95,8 +95,18 @@ while running:
         player_pos[0] += 10
     if moving_left == True:
         player_pos[0] -= 10
+    if jumping == True:
+        F = (1 / 2) * mass * (force ** 2)
+        player_pos[1] -= F
+        force = force - 1
+    if force < 0:
+        mass = -1
+    if force == -6:
+        jumping = False
+        mass = 1
+        force = 5
 
-    # exit
+        # exit
     for event in pygame.event.get():
         if event.type == QUIT:
             sys.exit()
@@ -105,6 +115,8 @@ while running:
                 moving_right = True
             if event.key == K_LEFT or event.key == ord('a'):
                 moving_left = True
+            if event.key == K_SPACE:
+                jumping = True
         if event.type == KEYUP:
             if event.key == K_RIGHT or event.key == ord('d'):
                 moving_right = False
