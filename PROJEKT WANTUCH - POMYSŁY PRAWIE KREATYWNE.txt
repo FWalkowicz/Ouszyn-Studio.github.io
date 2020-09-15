@@ -1,0 +1,62 @@
+Game mechanichs
+ Wielokrotne przechodzenie gry(podczas runa odblokowujesz przedmity, umiejętności boosty itp). Postęp odblokowywania (itemy, skille, buffy) zostaje zapamiętany (u Poradzisza). Wybierasz je podczas runa u Banasia
+
+Atakowanie
+- Opcja1 - tylko w mele, range jako skill z cooldawnem?
+- Opcja2 - przełaczanie między mele a łukiem/pistoletem (cokolwiek range xd) z limitem strzał(odnawiają się tako/po jakimś czasie znikają z ziemi i odrazu pojawiają się w puli[różnica  wtym że jak strzelisz wszystkie szbko jedna po drugiej to wrócą tak samo, z cooldawnem po prostu np. co 5 sec?])
+- Opcja3 [BARDZO AMBITNA] - atak uzależniony od posiadanej broni 
+
+#####################################################
+1LVL
+#####################################################
+~~~~~~~~~~~~~~~~
+Układ mapy?
+~~~~~~~~~~~~~~~~
+HUB:
+	
+lvl -> hub -> boss
+
+Mapa na sztywno później zastąpiona generatorem?
+
+~~~~~~~~~~~~~~~~
+Oponenci + opisy modelów i ataki
+~~~~~~~~~~~~~~~~
+
+	Nie wiem co z zwykłymi mobami? może po prostu jakieś losowe zombie, szkielety, Pany Poczwara itp?
+
+3 prostych oponentów :
+- zombie (pierwszak z telefonem xd)
+- szkielet/łucznik - laska z anoreksją, rozpada się po jednym trfieniu w mele/skillem, resistance na łuki?
+- woźna - potężniejszy od poprzedników 
+
+1 boss
+- Pajor (chemia) wyglad jak Pajorka omega lul, ewentualnie dorbne zaminy (np. jakieś szkło chemiczne w ręc idk)
+	ataki
+	- smutny ogóras - rzuca papierosem przy trafieniu czasowy debuff ( zmniejszone dmg, hp, movment speed)?
+	- rzut fiolką czy innym gównem - trucizna DOT
+	- w mele uderza tulipanem (sponsorowanie alko xd?)
+
+
+LOSOWE RZECZY
+Banaś w hubie między lvl -> wybierasz buffy/skille na run(free wczesniej kupione u Poradzisza za ). Upgrade przedmitów jeśli wprowadzone?
+Poradzisz -> kupujesz u niego (za cos?) skille, bronie, itd, -> potem Poradzisz zdradzi przed ostatnim, ostatnim starciem z Jolantą W. (Wjeżdża na arenę cinquecento potem wyskakuje i je miażdży. Gruby, ekran się trzęsie przy jego ruchach, potencjalny atak: szarża brzuchem) 
+
+
+
+###########
+Easter egg
+###########
+Mini boss hitler po zabicu za dużo żydów (np: 80% z całej planszy/całego runa):
+-wygląd: naprawdę muszę tłumaczyć?
+-ataki: trujaca chmura, strzał z pistoletu, jak nie zabijesz go szybko to strzela sobie w głowe i umiera, ty nic nie dostajesz
+-jeżeli go zabijesz dostajesz: 2x cały loot z żydów(z pozostałych i to co zbrałeś wcześniej)
+
+Belle delphine? ni chuja nie wiem gdzie
+-sprzedaje gamer girl barh water -> 100% hp + bless na cały poziom essa
+
+IVVR - przyjazne NPC dajace boosty, LORE, konieczni do odblokowania niektórych wymaganych itemów (zeby np móc wchodzić w niedostępne lokacje)
+- Pan Kapitan
+- Jarek krul Dżungli (z tyłu za nim kostium Gravesa?)
+- 
+- 
+- 
