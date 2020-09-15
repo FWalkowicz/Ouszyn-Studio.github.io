@@ -58,6 +58,7 @@ class Player(entity):
 		self.rect = self.image.get_rect()
 		self.holdedKeys = pg.key.get_pressed()
 		self.lastKeys = pg.key.get_pressed()
+		self.camPos = vec(PLAYER_START.x,PLAYER_START.y)
 	def keyPresssed(self,key):
 		k = ord(key)
 		if self.holdedKeys[k] and self.holdedKeys[k]!=self.lastKeys[k]:
