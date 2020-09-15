@@ -11,17 +11,17 @@ class entity(pg.sprite.Sprite):
 		self.maxJumps = 2
 		self.grounded = True
 		self.canJump = True
-		self.enableFlight = False
+		self.enableFlight = True
 		self.airControl = 0.7 #range (0,1)
 		self.spMultiplayer = 1
 		self.jumpAccel  = 9
 		self.friction = -0.5
-		self.speed = 2		#maksymalna predkosc gracza
+		self.speed = 4		#maksymalna predkosc gracza
 		self.pos = vec(0,0) #pozycja
 		self.acc = vec(0,0) #przyspieszenie
 		self.vel = vec(0,0)	#obecna predkosc
 		self.tag = "empty"
-		self.gravity = 0.2 #range (0,1)
+		self.gravity = 0.3 #range (0,1)
 
 
 		#sztywne ustawienie obrazu na 100 na 100
@@ -32,15 +32,15 @@ class entity(pg.sprite.Sprite):
 			self.rect = self.image.get_rect()
 	def setCollider(self):
 		self.collider = pg.Rect(self.rect.x,self.rect.y,self.rect.width,self.rect.height)
-	def checkColision(self,colliders):
+	def checkColision(self,colliders):#jeszcze do poprawienia
 		self.grounded =False
 		for i in colliders:
 			if pg.sprite.collide_rect(self,i):
-				if self.vel.x > 0 and self.pos.y> i.rect.top+10 and self.pos.x+self.rect.width/2-20<=i.rect.left:
+				if self.vel.x > 0 and self.pos.y> i.rect.top+10 and self.pos.x+self.rect.width/2-10<=i.rect.left:
 					self.pos.x = i.rect.left-self.rect.width/2+1
-				if self.vel.x < 0 and self.pos.y> i.rect.top+10 and self.pos.x-self.rect.width/2+20>=i.rect.right:
+				if self.vel.x < 0 and self.pos.y> i.rect.top+10 and self.pos.x-self.rect.width/2+10>=i.rect.right:
 					self.pos.x = i.rect.right+self.rect.width/2+1
-				if self.vel.y < 0 and self.pos.y-self.rect.height+40 >= i.rect.bottom:
+				if self.vel.y < 0 and self.pos.y-self.rect.height+10 >= i.rect.bottom:
 					self.pos.y = i.rect.bottom+self.rect.height
 					self.vel.y = 0
 				if self.vel.y > 0 and self.pos.y-self.rect.height/2+10 <= i.rect.top:
@@ -58,7 +58,6 @@ class Player(entity):
 		self.rect = self.image.get_rect()
 		self.holdedKeys = pg.key.get_pressed()
 		self.lastKeys = pg.key.get_pressed()
-		self.camPos = vec(PLAYER_START.x,PLAYER_START.y)
 	def keyPresssed(self,key):
 		k = ord(key)
 		if self.holdedKeys[k] and self.holdedKeys[k]!=self.lastKeys[k]:
@@ -82,12 +81,6 @@ class Player(entity):
 	def handleMovment(self):
 		self.holdedKeys=pg.key.get_pressed()
 		self.acc = vec(0,self.gravity)
-		if self.pos.y<=100:
-			self.canJump = False
-			self.pos.y = 100
-			self.vel.y = 0
-		else:
-			self.canJump = True	
 		if self.grounded:
 			self.spMultiplayer = 1
 			self.curJumps = 0
@@ -105,10 +98,5 @@ class Player(entity):
 		self.acc.x += self.vel.x * self.friction
 		self.vel += self.acc
 		self.pos += self.vel+self.acc
-
-		if self.pos.x > WIDTH:
-			self.pos.x = 0
-		if self.pos.x < 0:
-			self.pos.x = WIDTH
 		self.rect.midbottom = self.pos
 		self.lastKeys = self.holdedKeys
