@@ -10,5 +10,5 @@ vec = pg.math.Vector2
 WIDTH = 1280
 HEIGHT = 900
 TITLE = "Wantuch's game"
-PLAYER_START = vec(100,600)
+PLAYER_START = vec(200,600)
 running = True

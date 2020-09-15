@@ -12,7 +12,7 @@ pg.init()
 window = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption(TITLE)
 pg.mouse.set_visible(1)
-background = pg.image.load("tlo.jpg")
+background = pg.image.load("banas2.png")
 background = pg.transform.scale(background, (WIDTH, HEIGHT))
 
 clock = pg.time.Clock()
@@ -37,9 +37,9 @@ while running:
     window.blit(background, (0, 0))
     for event in pg.event.get():
         if event.type == QUIT:
-            sys.exit()
-    player.checkColision(platforms)      
+            sys.exit()    
     player.handleMovment()
+    player.checkColision(platforms)  
 
     all_sprites.draw(window)
     pg.display.update()
