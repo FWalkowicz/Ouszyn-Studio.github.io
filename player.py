@@ -14,34 +14,36 @@ class entity(pg.sprite.Sprite):
 		self.enableFlight = False
 		self.airControl = 0.7 #range (0,1)
 		self.spMultiplayer = 1
-		self.jumpAccel  = 20
+		self.jumpAccel  = 9
 		self.friction = -0.5
-		self.speed = 5		#maksymalna predkosc gracza
+		self.speed = 2		#maksymalna predkosc gracza
 		self.pos = vec(0,0) #pozycja
 		self.acc = vec(0,0) #przyspieszenie
 		self.vel = vec(0,0)	#obecna predkosc
 		self.tag = "empty"
-		
+		self.gravity = 0.2 #range (0,1)
 
 
 		#sztywne ustawienie obrazu na 100 na 100
-		self.image = pg.image.load('banas.png')
+		self.image = pg.image.load('character.jpg')
 		self.rect = self.image.get_rect()
 		if self.rect.height>100 or rect.width>100:
 			self.image = pg.transform.scale(self.image, (100, 100))
 			self.rect = self.image.get_rect()
+	def setCollider(self):
+		self.collider = pg.Rect(self.rect.x,self.rect.y,self.rect.width,self.rect.height)
 	def checkColision(self,colliders):
 		self.grounded =False
 		for i in colliders:
 			if pg.sprite.collide_rect(self,i):
-				if self.vel.x > 0 and self.pos.y> i.rect.top+5 and self.pos.x-10<=i.rect.left:
+				if self.vel.x > 0 and self.pos.y> i.rect.top+10 and self.pos.x+self.rect.width/2-20<=i.rect.left:
 					self.pos.x = i.rect.left-self.rect.width/2+1
-				if self.vel.x < 0 and self.pos.y> i.rect.top+5 and self.pos.x+10>=i.rect.right:
+				if self.vel.x < 0 and self.pos.y> i.rect.top+10 and self.pos.x-self.rect.width/2+20>=i.rect.right:
 					self.pos.x = i.rect.right+self.rect.width/2+1
-				if self.vel.y < 0 and self.pos.y+self.rect.height/2+5 >= i.rect.bottom:
+				if self.vel.y < 0 and self.pos.y-self.rect.height+40 >= i.rect.bottom:
 					self.pos.y = i.rect.bottom+self.rect.height
 					self.vel.y = 0
-				if self.vel.y > 0 and self.pos.y-self.rect.height/2+20 <= i.rect.top:
+				if self.vel.y > 0 and self.pos.y-self.rect.height/2+10 <= i.rect.top:
 					self.pos.y = i.rect.top+1
 					self.grounded =True
 					self.vel.y = 0
@@ -78,7 +80,7 @@ class Player(entity):
 		windowHandle.blit(self.image,self.rect)
 	def handleMovment(self):
 		self.holdedKeys=pg.key.get_pressed()
-		self.acc = vec(0,1)
+		self.acc = vec(0,self.gravity)
 		if self.pos.y<=100:
 			self.canJump = False
 			self.pos.y = 100
