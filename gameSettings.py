@@ -1,6 +1,6 @@
 import pygame as pg
 from pygame.locals import *
-
+import sys
 #ogolne ustawienia do gry
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
@@ -12,9 +12,12 @@ HEIGHT = 1080
 TITLE = "Wantuch's game"
 PLAYER_START = vec(200,600)
 running = True
-Animations_PATH = ""
+Animations_PATH = "Animations"
 def loadify(img):
 	return pg.image.load(img).convert_alpha()
 def clamp(val,minv,maxv):
 	val = max(min(val, maxv), minv)
 	return val
+def forceExitGame(debugLog):
+	print(debugLog)
+	sys.exit() 

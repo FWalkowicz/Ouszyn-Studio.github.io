@@ -54,7 +54,7 @@ class Game(object):
 			self.events()
 			self.update()
 			self.draw()
-			self.clock.tick(60)
+			self.clock.tick(120)
 	def update(self):
 		self.player.handleMovment()
 		self.player.checkColision(self.platforms)
@@ -67,8 +67,8 @@ class Game(object):
 		self.camera.moveCameraTo(self.player.pos)
 		self.screen.fill(BLACK)
 		self.display.blit(self.background, (0, 0))
-		self.display.blit(self.player.currFrame,(self.player.pos.x-self.camera.pos.x-self.player.rect.width/2,self.player.pos.y - self.camera.pos.y-self.player.rect.height ))
 		self.drawScrolled()
+		self.display.blit(self.player.currFrame,(self.player.pos.x-self.camera.pos.x-self.player.rect.width/2,self.player.pos.y - self.camera.pos.y-self.player.rect.height ))
 		self.screen.blit(pg.transform.scale(self.display,(self.cWidth,self.cHeight)),(0,0))
 		pg.display.update()
 	def initNewGame(self):
