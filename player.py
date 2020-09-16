@@ -22,28 +22,31 @@ class entity(pg.sprite.Sprite):
 		self.vel = vec(0,0)	#obecna predkosc
 		self.tag = "empty"
 		self.gravity = 0.3 #range (0,1)
+		self.left = False
 
 
 		#sztywne ustawienie obrazu na 100 na 100
-		self.image = pg.image.load('character.jpg')
+		self.image = loadify('character.jpg')
 		self.rect = self.image.get_rect()
 		if self.rect.height>100 or rect.width>100:
 			self.image = pg.transform.scale(self.image, (100, 100))
 			self.rect = self.image.get_rect()
+		self.currFrame = self.image
+
 	def setCollider(self):
 		self.collider = pg.Rect(self.rect.x,self.rect.y,self.rect.width,self.rect.height)
 	def checkColision(self,colliders):#jeszcze do poprawienia
 		self.grounded =False
 		for i in colliders:
 			if pg.sprite.collide_rect(self,i):
-				if self.vel.x > 0 and self.pos.y> i.rect.top+10 and self.pos.x+self.rect.width/2-10<=i.rect.left:
+				if self.vel.x > 0 and self.pos.y> i.rect.top+5 and self.pos.x+self.rect.width/2-10<=i.rect.left: # kolizja w lewo
 					self.pos.x = i.rect.left-self.rect.width/2+1
-				if self.vel.x < 0 and self.pos.y> i.rect.top+10 and self.pos.x-self.rect.width/2+10>=i.rect.right:
+				if self.vel.x < 0 and self.pos.y> i.rect.top+5 and self.pos.x-self.rect.width/2+10>=i.rect.right: # kolizja w prawo
 					self.pos.x = i.rect.right+self.rect.width/2+1
-				if self.vel.y < 0 and self.pos.y-self.rect.height+10 >= i.rect.bottom:
+				if self.vel.y < 0 and self.pos.y-self.rect.height/2-25 >= i.rect.bottom: # kolizja w gore
 					self.pos.y = i.rect.bottom+self.rect.height
 					self.vel.y = 0
-				if self.vel.y > 0 and self.pos.y-self.rect.height/2+10 <= i.rect.top:
+				if self.vel.y > 0 and self.pos.y-self.rect.height/2+20 <= i.rect.top: # kolizja w dol
 					self.pos.y = i.rect.top+1
 					self.grounded =True
 					self.vel.y = 0
@@ -89,14 +92,17 @@ class Player(entity):
 
 		if self.keyHold('d'):
 			self.acc.x = self.speed * self.spMultiplayer
+			self.left = False
 		if self.keyHold('a'):
 			self.acc.x = -self.speed *self.spMultiplayer
+			self.left = True
 		if self.keyPresssed('w') and ((self.grounded or self.curJumps<self.maxJumps and self.canJump) or self.enableFlight):
 			self.vel.y = 0
 			self.acc.y = -self.jumpAccel
 			self.curJumps+=1
+		self.currFrame = pg.transform.flip(self.image,self.left,False)
 		self.acc.x += self.vel.x * self.friction
 		self.vel += self.acc
 		self.pos += self.vel+self.acc
-		self.rect.midbottom = self.pos
+		self.rect.midbottom = self.pos	
 		self.lastKeys = self.holdedKeys
