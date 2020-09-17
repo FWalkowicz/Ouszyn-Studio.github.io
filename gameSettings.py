@@ -1,6 +1,7 @@
 import pygame as pg
 from pygame.locals import *
-import sys
+from keyboard import *
+from screen import *
 #ogolne ustawienia do gry
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
@@ -13,6 +14,8 @@ TITLE = "Wantuch's game"
 PLAYER_START = vec(200,600)
 running = True
 Animations_PATH = "Animations"
+SCREEN = screen()
+KEYBOARD = keyboard()
 def loadify(img):
 	return pg.image.load(img).convert_alpha()
 def clamp(val,minv,maxv):

@@ -62,33 +62,13 @@ class Player(entity):
 		super().__init__()
 		self.pos = vec(PLAYER_START.x,PLAYER_START.y)
 		self.rect = self.image.get_rect()
-		self.holdedKeys = pg.key.get_pressed()
-		self.lastKeys = pg.key.get_pressed()
 		self.tag = "player"
 		self.animator = Animator(self.tag)
 
-	def keyPresssed(self,key):
-		k = ord(key)
-		if self.holdedKeys[k] and self.holdedKeys[k]!=self.lastKeys[k]:
-			return True
-		else:
-			return False
-	def keyReleased(self,key):
-		k = ord(key)
-		if not self.holdedKeys[k] and self.holdedKeys[k]!=self.lastKeys[k]:
-			return True
-		else:
-			return False
-	def keyHold(self,key):
-		k = ord(key)
-		if self.holdedKeys[k]:
-			return True
-		else:
-			return False
 	def drawSelf(self,windowHandle):
 		windowHandle.blit(self.image,self.rect)
 	def handleMovment(self):
-		self.holdedKeys=pg.key.get_pressed()
+		KEYBOARD.holdedKeys=pg.key.get_pressed()
 		self.acc = vec(0,self.gravity)
 		if self.grounded:
 			self.spMultiplayer = 1
@@ -96,22 +76,22 @@ class Player(entity):
 		else:
 			self.spMultiplayer = self.airControl
 
-		if self.keyHold('d'):
+		if KEYBOARD.keyHold('d'):
 			self.acc.x = self.speed * self.spMultiplayer
 			self.left = False
-		if self.keyHold('a'):
+		if KEYBOARD.keyHold('a'):
 			self.acc.x = -self.speed *self.spMultiplayer
 			self.left = True
-		if self.keyPresssed('w') and ((self.grounded or self.curJumps<self.maxJumps and self.canJump) or self.enableFlight):
+		if KEYBOARD.keyPresssed('w') and ((self.grounded or self.curJumps<self.maxJumps and self.canJump) or self.enableFlight):
 			self.vel.y = 0
 			self.acc.y = -self.jumpAccel
 			self.curJumps+=1
 		else:
-			self.animator.play("idle")
+			self.animator.play('idle')
 		self.image = self.animator.currentFrame()
 		self.currFrame = pg.transform.flip(self.image,self.left,False)
 		self.acc.x += self.vel.x * self.friction
 		self.vel += self.acc
 		self.pos += self.vel+self.acc
 		self.rect.midbottom = self.pos	
-		self.lastKeys = self.holdedKeys
+		KEYBOARD.lastKeys = KEYBOARD.holdedKeys

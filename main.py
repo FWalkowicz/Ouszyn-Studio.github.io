@@ -1,26 +1,23 @@
+import pygame as pg
 import os
-from player import * 
+import player
 from gameSettings import *
-from plat import *
+import plat
 from Camera import *
+
 #bedzie przechowywac gracza,wszystkie moby stwory etc
 class Game(object):
 	def __init__(self):
 		pg.init()
-		self.monitor_size = [pg.display.Info().current_w, pg.display.Info().current_h]
-		self.cWidth = WIDTH
-		self.cHeight = HEIGHT
-		self.screen = pg.display.set_mode((self.cWidth, self.cHeight))
+		SCREEN.init()
 		pg.display.set_caption(TITLE)
 		pg.mouse.set_visible(1)
 		self.background = loadify("tlo.jpg")
-		self.background = pg.transform.scale(self.background, (self.cWidth, self.cHeight))
+		self.background = pg.transform.scale(self.background, (SCREEN.cWidth, SCREEN.cHeight))
 		self.clock = pg.time.Clock()
 		self.running = True
 		self.camera = Camera()
-		self.display = pg.Surface((WIDTH,HEIGHT))
-		self.fullscreen = False
-		print(self.monitor_size[0])
+		self.fullscreen = False		
 
 	def addEntity(self,entity):
 		self.all_sprites.add(entity)
@@ -32,17 +29,7 @@ class Game(object):
 		for event in pg.event.get():
 			if event.type == KEYDOWN:
 				if event.key == K_f:
-					if not self.fullscreen:
-						self.cHeight = self.monitor_size[1]
-						self.cWidth = self.monitor_size[0]
-						self.screen = pg.display.set_mode((self.cWidth, self.cHeight),pg.FULLSCREEN)
-						self.fullscreen = True
-					else:
-						self.cWidth = WIDTH
-						self.cHeight = HEIGHT
-						self.screen = pg.display.set_mode((self.cWidth, self.cHeight))
-						self.fullscreen = False
-					#self.display = pg.Surface((self.cWidth, self.cHeight))
+						SCREEN.setFullScreen()
 			if event.type == pg.QUIT:
 				if self.playing:
 					self.playing = False
@@ -61,16 +48,14 @@ class Game(object):
 	def drawScrolled(self):
 
 		for sprite in self.all_sprites:
-			self.display.blit(sprite.image,(sprite.rect.x-self.camera.pos.x,sprite.rect.y-self.camera.pos.y))
+			SCREEN.drawOnDisplay(sprite.image,(sprite.rect.x-self.camera.pos.x,sprite.rect.y-self.camera.pos.y))
 
 	def draw(self):
 		self.camera.moveCameraTo(self.player.pos)
-		self.screen.fill(BLACK)
-		self.display.blit(self.background, (0, 0))
+		SCREEN.drawOnDisplay(self.background, (0, 0))
 		self.drawScrolled()
-		self.display.blit(self.player.currFrame,(self.player.pos.x-self.camera.pos.x-self.player.rect.width/2,self.player.pos.y - self.camera.pos.y-self.player.rect.height ))
-		self.screen.blit(pg.transform.scale(self.display,(self.cWidth,self.cHeight)),(0,0))
-		pg.display.update()
+		SCREEN.drawOnDisplay(self.player.currFrame,(self.player.pos.x-self.camera.pos.x-self.player.rect.width/2,self.player.pos.y - self.camera.pos.y-self.player.rect.height ))
+		SCREEN.showScreen()
 	def initNewGame(self):
 		self.entities = []
 		self.all_sprites = pg.sprite.Group()
