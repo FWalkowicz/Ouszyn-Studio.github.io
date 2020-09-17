@@ -4,6 +4,8 @@ Game mechanichs
 - Wielokrotne przechodzenie gry(podczas runa odblokowujesz przedmity, umiejętności boosty itp). Postęp odblokowywania (itemy, skille, buffy) zostaje zapamiętany (u Poradzisza). Wybierasz je podczas runa u Banasia. 2 typt walut(np: srebro i jedynki). Za jedynki odblokowywujesz przedmioty, skile itp. Za srebro/złoto/monety/JebanegoDisaNaSekunde ulepszesz przedmoity(np : o jeden poziom czy coś) kupujesz w sklepie. 
  
  - Odblokowanie poty możliwość jej upgardu u poradzisza(permamentne zwiększenien liczby użyć) w zależnosci od poziomu trudnosci jej uzupełnianie w hubie będzie możliwe co np: 2 plansze itp.
+ 
+ - Sklepik szkolny w którym można kupić broń, chwilowy buff(np: na jedną planszę lub do następnego bossa[buła z dzemem lol]), przedmiot do natychmiastowego leczenia(soczek w kartonie xd). Powinien się pojawić na każdej planszy w jakiejś formie.
 
 ~~~~~~~~~~~~~~~~~~
 Atakowanie + Ruch
@@ -33,13 +35,15 @@ Mapa na sztywno później zastąpiona generatorem?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Pierwsza PLansza - Oponenci + opisy modelów i ataki 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Textury/wygląd jak przed wejściem do zsme(tereny zielone, bierznia itp). Koniec planszy -> wejście do zsme(pilnują go woźne 1 do 3[mają być stosunkowo silne jak na ten etap gry] potem hub i boss room -> wygląd jak po wjeściu głównymi drzwiami zsme klatka schodowa korytarze itp. boss w sumie może być pajor bo nieraz pełniła tam wartę). Forma sklepiku: dostawczak z towarem
 	
-	Nie wiem co z zwykłymi mobami? może po prostu jakieś losowe zombie, szkielety, Pany Poczwara itp?
 
 3 prostych oponentów :
-- zombie (pierwszak z telefonem xd)
-- szkielet/łucznik - laska z anoreksją, rozpada się po jednym trfieniu w mele/skillem, resistance na łuki?
-- woźna - potężniejszy od poprzedników, w mele atakuje miotłą, rzadki atak rzut wiadrem wody, spowalnia
+- zombie (pierwszak z telefonem xd) - lekko zielonkawy z brakującym frgmentem czaszki, ubrany jak zwykły typ - jedyny atak to machnięcie ręką z telefonem
+- szkielet/łucznik - laska z anoreksją, rozpada się po jednym trfieniu w mele/skillem, resistance na łuki? - strzela focha lol albo z łuku idk, połowa ciała to same kości
+- sportowcy z covidem(no chyba że są zbyt potężni to nie) - wiemy jak wyglądają sportowcy (żeby nie byc chamem), odporni na posison
+- woźna - potężniejszy od poprzedników, - zgarbiona podpiera się na miotle przy chodzeniu, nosi standardowymundur woźnej(ten niebieski fartuch czy co to jest xd) atakujac unosi ją do góry, w mele atakuje miotłą, rzadki atak rzut wiadrem wody, spowalnia
 
 1 boss
 - Pajor (chemia) wyglad jak Pajorka omega lul, ewentualnie dorbne zaminy (np. jakieś szkło chemiczne w ręc idk)
@@ -47,6 +51,25 @@ Pierwsza PLansza - Oponenci + opisy modelów i ataki
 	- smutny ogóras - rzuca papierosem przy trafieniu czasowy debuff ( zmniejszone dmg, hp, movment speed)?
 	- rzut fiolką czy innym gównem - trucizna DOT
 	- w mele uderza tulipanem (sponsorowanie alko xd?)
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Druga PLansza - Oponenci + opisy modelów i ataki 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	
+	Wygląd mapy - korytarze zsme z ich pięknym zielonym kolorem, drzwi w tle,
+	
+	
+	
+	
+	
+#############################
+Przeciwnicy do wykorzystania
+#############################
+- sebix
+- a thot from liceum
+- Pany Poczwara itp?
+- sportowcy z Covidem, odporni na poison
+- pijany
 
 
 ###########
@@ -71,8 +94,132 @@ IVVR - przyjazne NPC dajace boosty, LORE, konieczni do odblokowania niektórych 
 - HerrBarbaraŚ - wygląd kurczaka z lola
 - Kuzyn Kapitana - nie znam opa jak on z liceum
 
+Dis ORK get of my swamp
+- AAAAAAAAAAAAAAAAAAAAA TOPÓR KURWA! TOPORYYYY!
+- tak, tak a potem przylatuje smok o rucha twoją matke
+- 	szczerze mówiąc mam wyjebane w hejty
+	I wyjebane co kto powie
+	Że ja nie powinienem się tak zachowywać na streamie
+	Będę się tak kurwa zachowywał na streamie
+	Bo mi się tak podoba
+	Reportujcie sobie róbcie co chcecie
+	W chuju to mam dopóki mentalność narodu się nie zmieni
+	To ja też się kurwa nie zmienię.
+	Bo nie da się, nie da się z tymi ludźmi grać
+	Choćbyś nie wiem jak był miły
+	Choćbyś kurwa nie wiem co zrobił
+	To ci ludzie i tak będą cie nienawidzić
+	I tak cie kurwa strollują
+	- Norbert"Dis''Gierczak
+
 ###########################################
 LOSOWE RZECZY DO POŹNIEJSZEGO WYKORZYSTANIA
 ###########################################
 Banaś w hubie między lvl -> wybierasz buffy/skille na run(free wczesniej kupione u Poradzisza za ). Upgrade przedmitów jeśli wprowadzone?
 Poradzisz -> kupujesz u niego (za cos?) skille, bronie, itd, -> potem Poradzisz zdradzi przed ostatnim, ostatnim starciem z Jolantą W. (Wjeżdża na arenę cinquecento potem wyskakuje i je miażdży. Gruby, ekran się trzęsie przy jego ruchach, potencjalny atak: szarża brzuchem) 
+
+Wpychamy gdzieś Grażynę Dziurok i Boga pana naszego EJMEN?
+
+Po Witaszkowej matura której nie da się przejśc lol
+
+#########################
+NIC TU NIE MA IDŹ Z TOND
+#########################
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################
+JA NA SERIO BO CO TU PATRZYSZ?
+##############################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#########################
+ZAWRÓĆ BO UMRZESZ!
+#########################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##########################################
+NO KURŁA BYNIU MÓWE IDŹ Z TĄD TO IDŹ Z TĄD
+###########################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################################
+NO JASNY GWINT NIE ROZUMIESZ CO TO PRYWATNOŚĆ?
+##############################################
+
+
+
+
+
+
+Zapychacz bo moge JD was
+
+
+
+
+
+
+
+
+
+
+END OF FILE
+#################################################################################################################################################################################
