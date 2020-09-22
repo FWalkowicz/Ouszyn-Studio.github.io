@@ -4,12 +4,14 @@ import player
 from gameSettings import *
 import plat
 from Camera import *
-
+from collider import *
+from enemy import *
 #bedzie przechowywac gracza,wszystkie moby stwory etc
 class Game(object):
 	def __init__(self):
 		pg.init()
 		SCREEN.init()
+		KEYBOARD.init()
 		pg.display.set_caption(TITLE)
 		pg.mouse.set_visible(1)
 		self.background = loadify("tlo.jpg")
@@ -22,9 +24,9 @@ class Game(object):
 	def addEntity(self,entity):
 		self.all_sprites.add(entity)
 		self.entities.append(entity)
-	def addPlatform(self,platform):
+	def addCollidable(self,platform):
 		self.all_sprites.add(platform)
-		self.platforms.add(platform)
+		self.collidable.add(platform)
 	def events(self):
 		for event in pg.event.get():
 			if event.type == KEYDOWN:
@@ -38,32 +40,36 @@ class Game(object):
 	def run(self):
 		self.playing = True
 		while self.playing:
+			KEYBOARD.getInput()
 			self.events()
 			self.update()
 			self.draw()
 			self.clock.tick(120)
+			KEYBOARD.updateInput()
 	def update(self):
-		self.player.handleMovment()
-		self.player.checkColision(self.platforms)
-	def drawScrolled(self):
-
+		self.player.handleMovment(self.camera)
+		self.player.checkColision(self.collidable)
+	def drawEnviroment(self):
 		for sprite in self.all_sprites:
 			SCREEN.drawOnDisplay(sprite.image,(sprite.rect.x-self.camera.pos.x,sprite.rect.y-self.camera.pos.y))
 
 	def draw(self):
 		self.camera.moveCameraTo(self.player.pos)
 		SCREEN.drawOnDisplay(self.background, (0, 0))
-		self.drawScrolled()
-		SCREEN.drawOnDisplay(self.player.currFrame,(self.player.pos.x-self.camera.pos.x-self.player.rect.width/2,self.player.pos.y - self.camera.pos.y-self.player.rect.height ))
+		self.drawEnviroment()	
+		SCREEN.drawOnDisplay(self.player.currFrame,self.player.getAbsLeftTop(self.camera.pos))
+		self.player.drawCollider(self.camera.pos)
+		self.entities[0].drawCollider(self.camera.pos)	
 		SCREEN.showScreen()
 	def initNewGame(self):
 		self.entities = []
 		self.all_sprites = pg.sprite.Group()
-		self.platforms = pg.sprite.Group() #z platformami sie koliduje 
-		self.player = Player()
-		self.addPlatform(Platform(-100, 1000, 2200, 40))
-		self.addPlatform(Platform(500, 500, 200, 200))
-		self.addPlatform(Platform(-100, 100, 1200, 40))
+		self.collidable = pg.sprite.Group() #z platformami sie koliduje 
+		self.player = Player(0,0,cW=100,cH=100)
+		self.addEntity(Enemy(0,0))
+		self.addCollidable(Platform(-100, 1000, 2200, 40))
+		self.addCollidable(Platform(500, 500, 200, 200))
+		self.addCollidable(Platform(-100, 100, 1200, 40))
 		self.run()
 	def show_start_screen(self):
 	# game splash/start screen

@@ -3,9 +3,9 @@ from pygame.locals import *
 import sys
 import os
 from gameSettings import *
-
+#kwadratowe animacje
 class Animator(object):
-	def __init__(self, animationFolderName):
+	def __init__(self, animationFolderName,scaler = 1):
 		self.animations = {}
 		self.animDiv = 20
 		self.cFrame = 0 
@@ -14,7 +14,8 @@ class Animator(object):
 		self.baseAnimation = ""
 		self.recentAnimation = ""
 		self.isLooped = True
-		path  = Animations_PATH+"/"+animationFolderName
+		print(os.getcwd())
+		path  = os.path.join(Animations_PATH,animationFolderName)
 		os.chdir(path)
 		for directory in os.listdir():
 			if not os.path.isdir(directory):
@@ -23,13 +24,15 @@ class Animator(object):
 			arr = []
 			for image in os.listdir():
 				im = loadify(image)
-				arr.append(pg.transform.scale(im, (100, 100)))
+				arr.append(pg.transform.scale(im, (100 * scaler, 100*scaler)))
 			self.animations[directory] = arr
 			os.chdir("..")
+		os.chdir("..")
 		os.chdir("..")
 		if not "idle" in self.animations:
 			forceExitGame("nie ma base animacji idle")
 		print("Ladowanie imagow ok")
+		self.play("idle")
 	def play(self,animationName,looped = True):
 		if not animationName in self.animations: 
 			forceExitGame("animacja "+ animationName+" nie zostala wczytana do tablicy")

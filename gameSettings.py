@@ -1,20 +1,22 @@
 import pygame as pg
+import screen
 from pygame.locals import *
 from keyboard import *
-from screen import *
+
+import sys
+
 #ogolne ustawienia do gry
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 vec = pg.math.Vector2
-WIDTH = 1280
-HEIGHT = 1080
+WIDTH =  1280
+HEIGHT = 720
 TITLE = "Wantuch's game"
-PLAYER_START = vec(200,600)
 running = True
 Animations_PATH = "Animations"
-SCREEN = screen()
+SCREEN = screen.screen()
 KEYBOARD = keyboard()
 def loadify(img):
 	return pg.image.load(img).convert_alpha()
@@ -24,3 +26,8 @@ def clamp(val,minv,maxv):
 def forceExitGame(debugLog):
 	print(debugLog)
 	sys.exit() 
+def isBeetwen(val,mi,ma):
+	if val>=mi and val<=ma:
+		return True
+	else:
+		return False
