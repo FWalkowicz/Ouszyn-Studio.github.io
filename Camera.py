@@ -25,3 +25,8 @@ class Camera(object):
 		speed = clamp(speed,1,self.maxSpeed)
 		self.pos += vec(playerPos.x - self.pos.x-WIDTH/2+x,playerPos.y -self.pos.y - HEIGHT/2-50+y)*speed/self.maxSpeed #50 to player height aby idealnie wycentrowac
 		
+			x = random.randrange(-self.strength,self.strength)
+			y = random.randrange(-self.strength,self.strength)
+			self.shakeTime-=1
+		speed = clamp(speed,1,self.maxSpeed)
+		self.pos += vec(playerPos.x - self.pos.x-WIDTH/2+x,playerPos.y -self.pos.y - HEIGHT/2-50+y)*speed/self.maxSpeed #50 to player height aby idealnie wycentrowac
